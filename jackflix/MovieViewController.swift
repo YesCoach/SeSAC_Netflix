@@ -35,18 +35,40 @@ class MovieViewController: UIViewController {
         }
     }
 
+    @IBAction func likeButtonClicked(_ sender: UIButton) {
+        let alert = UIAlertController(
+            title: "이게 타이틀이야??",
+            message: "이게 메시지야? 이게 블락이야?",
+            preferredStyle: .alert
+        )
+        let ok = UIAlertAction(title: "확인", style: .default)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+
+        alert.addAction(ok)
+        alert.addAction(cancel)
+
+        present(alert, animated: true)
+    }
+
     private func configureUI() {
-        [
-            previewFirstImageView, secondImageView, thirdImageView
-        ].forEach {
-            $0.contentMode = .scaleAspectFill
-            $0.layer.cornerRadius = 50.0
-            $0.layer.borderWidth = 5.0
-            $0.layer.borderColor = UIColor.gray.cgColor
-        }
-
+        configureButton()
+        configureLabel(previewFirstImageView, .red)
+        configureLabel(secondImageView, .green)
+        configureLabel(thirdImageView, .blue)
         previewFirstImageView.image = pickRandomImage()
+    }
 
+    // 매개변수: Parameter - 전달인자를 받을 변수
+    // 전달인자: Argument - 함수를 호출할 때 전달하는 값(시시각각 변동)
+
+    func configureLabel(_ name: UIImageView, _ borderColor: UIColor) {
+        name.contentMode = .scaleAspectFill
+        name.layer.cornerRadius = 50.0
+        name.layer.borderWidth = 5.0
+        name.layer.borderColor = borderColor.cgColor
+    }
+
+    func configureButton() {
         let normal = UIImage(named: "play_normal")
         let highlight = UIImage(named: "play_highlighted")
         randomPlayButon.setTitleColor(.blue, for: .normal)
@@ -57,6 +79,7 @@ class MovieViewController: UIViewController {
         randomPlayButon.layer.borderColor = UIColor.red.cgColor
         randomPlayButon.layer.borderWidth = 4.0
     }
+
     private func pickRandomImage() -> UIImage? {
         let randomResult = random[Int.random(in: 0..<random.count)]
         return UIImage(named: randomResult)
