@@ -248,6 +248,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MGL-Cy-nid">
+                                <rect key="frame" x="148" y="519" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LCx-eW-QTq"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -291,6 +297,7 @@
                         <outlet property="nicknameTextField" destination="ZjM-FF-d9U" id="QeL-ao-7Eh"/>
                         <outlet property="passwordTextField" destination="Ndp-Pc-yi1" id="06d-2S-2Sf"/>
                         <outlet property="signInButton" destination="PD3-3z-8ka" id="8op-wh-XvV"/>
+                        <outlet property="testTextField" destination="MGL-Cy-nid" id="91V-wi-SkR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pcm-Q1-Xum" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

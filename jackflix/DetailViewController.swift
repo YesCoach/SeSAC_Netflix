@@ -17,9 +17,12 @@ class DetailViewController: UIViewController {
     @IBOutlet var signInButton: UIButton!
     @IBOutlet var infoSwitch: UISwitch!
 
+    @IBOutlet var testTextField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+
     }
 
     private func configureUI() {
@@ -50,28 +53,29 @@ class DetailViewController: UIViewController {
 
     @IBAction func didSignInButtonTouched(_ sender: UIButton) {
         view.endEditing(true)
-        guard emailTextField.text! != "" && passwordTextField.text! != "" && nicknameTextField.text! != ""
-        else {
-            let alert = UIAlertController(
-                title: "회원정보가 부족해요!",
-                message: "정보를 마저 입력해주세요",
-                preferredStyle: .alert
-            )
-            let confirmAction = UIAlertAction(title: "확인", style: .default)
-            alert.addAction(confirmAction)
-            present(alert, animated: true)
-            return
-        }
         let alert = UIAlertController(
-            title: "회원가입 하시겠어요?",
-            message: "\(nicknameTextField.text!)님의 ID: \(emailTextField.text!)",
+            title: "",
+            message: "",
             preferredStyle: .alert
         )
         let confirmAction = UIAlertAction(title: "확인", style: .default)
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-
         alert.addAction(confirmAction)
-        alert.addAction(cancelAction)
+
+        guard !emailTextField.text!.isEmpty && !passwordTextField.text!.isEmpty && !nicknameTextField.text!.isEmpty
+        else {
+            alert.title = "회원정보가 부족해요!"
+            alert.message = "정보를 마저 입력해주세요"
+            present(alert, animated: true)
+            return
+        }
+        if passwordTextField.text!.count < 6 {
+            alert.message = "비밀번호는 6자 이상으로 입력해주세요!"
+        } else {
+            alert.title = "회원가입 하시겠어요?"
+            alert.message = "\(nicknameTextField.text!)님의 ID: \(emailTextField.text!)"
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+            alert.addAction(cancelAction)
+        }
         present(alert, animated: true)
     }
 
