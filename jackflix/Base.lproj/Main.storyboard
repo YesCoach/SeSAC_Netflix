@@ -192,98 +192,66 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PD3-3z-8ka">
-                                <rect key="frame" x="64" y="498" width="265" height="29"/>
+                                <rect key="frame" x="64" y="388" width="265" height="29"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="회원가입">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="0.0"/>
                                 </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didSignInButtonTouched:" destination="yca-BM-Z6o" eventType="touchUpInside" id="1i6-Ro-A7r"/>
+                                </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xdT-Za-Pl1">
-                                <rect key="frame" x="280" y="551" width="51" height="31"/>
+                                <rect key="frame" x="280" y="441" width="51" height="31"/>
                                 <color key="onTintColor" systemColor="systemRedColor"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추가 정보 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6VR-eP-xDc">
-                                <rect key="frame" x="64" y="551" width="81" height="17"/>
+                                <rect key="frame" x="64" y="441" width="81" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일 주소 또는 전화번호" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tdk-UO-Ky3">
-                                <rect key="frame" x="64" y="248" width="265" height="34"/>
+                                <rect key="frame" x="64" y="138" width="265" height="34"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderLabel.textColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ndp-Pc-yi1">
-                                <rect key="frame" x="64" y="298" width="265" height="34"/>
+                                <rect key="frame" x="64" y="188" width="265" height="34"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderLabel.textColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="닉네임" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZjM-FF-d9U">
-                                <rect key="frame" x="64" y="348" width="265" height="34"/>
+                                <rect key="frame" x="64" y="238" width="265" height="34"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderLabel.textColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="위치" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yyZ-Aj-Ikm">
-                                <rect key="frame" x="64" y="398" width="265" height="34"/>
+                                <rect key="frame" x="64" y="288" width="265" height="34"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderLabel.textColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="추천 코드 입력" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s2c-gP-OU3">
-                                <rect key="frame" x="64" y="448" width="265" height="34"/>
+                                <rect key="frame" x="64" y="338" width="265" height="34"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderLabel.textColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LCx-eW-QTq"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="LCx-eW-QTq" firstAttribute="trailing" secondItem="PD3-3z-8ka" secondAttribute="trailing" constant="64" id="0Ak-yV-nPe"/>
                             <constraint firstItem="s2c-gP-OU3" firstAttribute="top" secondItem="yyZ-Aj-Ikm" secondAttribute="bottom" constant="16" id="0Cd-dx-8c3"/>
@@ -295,7 +263,7 @@
                             <constraint firstItem="ZjM-FF-d9U" firstAttribute="top" secondItem="Ndp-Pc-yi1" secondAttribute="bottom" constant="16" id="BnW-nl-WEY"/>
                             <constraint firstItem="LCx-eW-QTq" firstAttribute="trailing" secondItem="tdk-UO-Ky3" secondAttribute="trailing" constant="64" id="CXR-cP-jb1"/>
                             <constraint firstItem="tdk-UO-Ky3" firstAttribute="leading" secondItem="LCx-eW-QTq" secondAttribute="leading" constant="64" id="Eln-MJ-CXa"/>
-                            <constraint firstItem="tdk-UO-Ky3" firstAttribute="top" secondItem="pon-0v-NQo" secondAttribute="bottom" constant="150" id="GLa-L4-XJB"/>
+                            <constraint firstItem="tdk-UO-Ky3" firstAttribute="top" secondItem="pon-0v-NQo" secondAttribute="bottom" constant="40" id="GLa-L4-XJB"/>
                             <constraint firstItem="Ndp-Pc-yi1" firstAttribute="leading" secondItem="LCx-eW-QTq" secondAttribute="leading" constant="64" id="M9d-cA-uVb"/>
                             <constraint firstItem="6VR-eP-xDc" firstAttribute="leading" secondItem="PD3-3z-8ka" secondAttribute="leading" id="NlK-DK-Hea"/>
                             <constraint firstItem="s2c-gP-OU3" firstAttribute="leading" secondItem="LCx-eW-QTq" secondAttribute="leading" constant="64" id="RSG-bR-ajB"/>
@@ -310,10 +278,27 @@
                             <constraint firstItem="ZjM-FF-d9U" firstAttribute="leading" secondItem="LCx-eW-QTq" secondAttribute="leading" constant="64" id="kMh-ad-msf"/>
                             <constraint firstItem="LCx-eW-QTq" firstAttribute="trailing" secondItem="yyZ-Aj-Ikm" secondAttribute="trailing" constant="64" id="le9-HE-MO2"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="blK-yL-3bU" appends="YES" id="CcO-Xq-CoZ"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Ufh-MR-vlm"/>
+                    <connections>
+                        <outlet property="codeTextField" destination="s2c-gP-OU3" id="hX1-va-pFK"/>
+                        <outlet property="emailTextField" destination="tdk-UO-Ky3" id="JOO-YK-7Es"/>
+                        <outlet property="infoSwitch" destination="xdT-Za-Pl1" id="bnG-Bu-JQ4"/>
+                        <outlet property="locationTextField" destination="yyZ-Aj-Ikm" id="b4F-lP-frK"/>
+                        <outlet property="nicknameTextField" destination="ZjM-FF-d9U" id="QeL-ao-7Eh"/>
+                        <outlet property="passwordTextField" destination="Ndp-Pc-yi1" id="06d-2S-2Sf"/>
+                        <outlet property="signInButton" destination="PD3-3z-8ka" id="8op-wh-XvV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pcm-Q1-Xum" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="blK-yL-3bU">
+                    <connections>
+                        <action selector="didBackgroundViewTouched:" destination="yca-BM-Z6o" id="GWe-fd-fay"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1018" y="4"/>
         </scene>

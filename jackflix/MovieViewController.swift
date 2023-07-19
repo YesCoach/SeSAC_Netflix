@@ -29,7 +29,7 @@ class MovieViewController: UIViewController {
 
     @IBAction func playButtonClicked(_ sender: UIButton) {
         [
-            previewFirstImageView, secondImageView, thirdImageView
+            posterImageView, previewFirstImageView, secondImageView, thirdImageView
         ].forEach {
             $0.image = pickRandomImage()
         }
