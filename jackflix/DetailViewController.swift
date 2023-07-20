@@ -22,7 +22,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-
     }
 
     private func configureUI() {
@@ -54,12 +53,32 @@ class DetailViewController: UIViewController {
     @IBAction func didSignInButtonTouched(_ sender: UIButton) {
         view.endEditing(true)
         let alert = UIAlertController(
-            title: "",
-            message: "",
+            title: nil,
+            message: nil,
             preferredStyle: .alert
         )
         let confirmAction = UIAlertAction(title: "확인", style: .default)
         alert.addAction(confirmAction)
+
+//        let destructiveAction = UIAlertAction(title: "삭제", style: .destructive)
+//        alert.addAction(destructiveAction)
+
+        // swift5 Raw Strings
+        // + iOS의 ActionSheet -> iPad에서 실행 시 앱이 죽을 수 있음
+        /*
+
+        let button1 = UIAlertAction(title: "1111", style: .destructive)
+        let button2 = UIAlertAction(title: "2222", style: .default)
+        let button3 = UIAlertAction(title: "3333", style: .default)
+        let button4 = UIAlertAction(title: "4444", style: .default)
+
+        [
+            button2, button3, button1, button4
+        ].forEach {
+            alert.addAction($0)
+        }
+
+         */
 
         guard !emailTextField.text!.isEmpty && !passwordTextField.text!.isEmpty && !nicknameTextField.text!.isEmpty
         else {
