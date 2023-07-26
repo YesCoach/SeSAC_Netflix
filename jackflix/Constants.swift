@@ -11,6 +11,7 @@ enum Constants {
     case email
     case password
     case nickname
+    case isLogin
 }
 
 extension Constants {
@@ -19,6 +20,7 @@ extension Constants {
         case .email: return "email"
         case .password: return "password"
         case .nickname: return "nickname"
+        case .isLogin: return "isLogin"
         }
     }
 }
