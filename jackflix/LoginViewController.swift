@@ -18,6 +18,7 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
     }
+
     // Any
     @IBAction func keyboardDismiss(_ sender: Any) {
         view.endEditing(true)
@@ -27,9 +28,7 @@ final class LoginViewController: UIViewController {
 private extension LoginViewController {
     func configureUI() {
         configureButton()
-
-        emailTextField.placeholder = "이메일을 입력하세요"
-        passwordTextField.placeholder = "비밀번호를 입력하세요"
+        configureTextField()
     }
 
     func configureButton() {
@@ -56,5 +55,13 @@ private extension LoginViewController {
         emailLoginButtonConfig.baseBackgroundColor = .black
 
         emailLoginButton.configuration = emailLoginButtonConfig
+    }
+
+    func configureTextField() {
+        emailTextField.keyboardType = .emailAddress
+        passwordTextField.isSecureTextEntry = true
+
+        emailTextField.placeholder = "이메일을 입력하세요"
+        passwordTextField.placeholder = "비밀번호를 입력하세요"
     }
 }
