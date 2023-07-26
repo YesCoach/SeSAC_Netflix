@@ -48,6 +48,18 @@ class DetailViewController: UIViewController {
         infoSwitch.setOn(false, animated: true)
         infoSwitch.onTintColor = .green
         infoSwitch.thumbTintColor = .white
+
+        // tag 설정
+
+        emailTextField.tag = 0
+        passwordTextField.tag = 1
+        nicknameTextField.tag = 2
+        locationTextField.tag = 3
+        codeTextField.tag = 4
+    }
+
+    @IBAction func didTextFieldEntered(_ sender: UITextField) {
+        print("키보드 리턴키 클릭: \(sender.tag)")
     }
 
     @IBAction func didSignInButtonTouched(_ sender: UIButton) {
@@ -59,26 +71,6 @@ class DetailViewController: UIViewController {
         )
         let confirmAction = UIAlertAction(title: "확인", style: .default)
         alert.addAction(confirmAction)
-
-//        let destructiveAction = UIAlertAction(title: "삭제", style: .destructive)
-//        alert.addAction(destructiveAction)
-
-        // swift5 Raw Strings
-        // + iOS의 ActionSheet -> iPad에서 실행 시 앱이 죽을 수 있음
-        /*
-
-        let button1 = UIAlertAction(title: "1111", style: .destructive)
-        let button2 = UIAlertAction(title: "2222", style: .default)
-        let button3 = UIAlertAction(title: "3333", style: .default)
-        let button4 = UIAlertAction(title: "4444", style: .default)
-
-        [
-            button2, button3, button1, button4
-        ].forEach {
-            alert.addAction($0)
-        }
-
-         */
 
         guard !emailTextField.text!.isEmpty && !passwordTextField.text!.isEmpty && !nicknameTextField.text!.isEmpty
         else {
