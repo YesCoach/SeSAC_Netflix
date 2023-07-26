@@ -10,6 +10,9 @@ import UIKit
 final class LoginViewController: UIViewController {
 
     @IBOutlet var enterWithoutLoginButton: UIButton!
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var emailLoginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,19 +26,35 @@ final class LoginViewController: UIViewController {
 
 private extension LoginViewController {
     func configureUI() {
-        var config = UIButton.Configuration.filled() // apple system button
-        config.title = "SeSAC 영등포캠퍼스"
-        config.subtitle = "로그인 없이 둘러보기"
-        config.image = .init(systemName: "house")
-        config.cornerStyle = .capsule
-        config.titlePadding = 5.0
-        config.imagePadding = 5.0
+        configureButton()
 
-        config.baseForegroundColor = .white
-        config.baseBackgroundColor = .systemMint
-        config.imagePlacement = .leading
-        config.titleAlignment = .leading
+        emailTextField.placeholder = "이메일을 입력하세요"
+        passwordTextField.placeholder = "비밀번호를 입력하세요"
+    }
 
-        enterWithoutLoginButton.configuration = config
+    func configureButton() {
+        var withoutLoginButtonConfig = UIButton.Configuration.filled() // apple system button
+        withoutLoginButtonConfig.title = "SeSAC 영등포캠퍼스"
+        withoutLoginButtonConfig.subtitle = "로그인 없이 둘러보기"
+        withoutLoginButtonConfig.image = .init(systemName: "house")
+
+        withoutLoginButtonConfig.cornerStyle = .capsule
+        withoutLoginButtonConfig.titlePadding = 5.0
+        withoutLoginButtonConfig.imagePadding = 5.0
+        withoutLoginButtonConfig.baseForegroundColor = .white
+        withoutLoginButtonConfig.baseBackgroundColor = .systemMint
+        withoutLoginButtonConfig.imagePlacement = .leading
+        withoutLoginButtonConfig.titleAlignment = .leading
+
+        enterWithoutLoginButton.configuration = withoutLoginButtonConfig
+
+        var emailLoginButtonConfig = UIButton.Configuration.filled()
+        emailLoginButtonConfig.title = "이메일로 로그인하기"
+
+        emailLoginButtonConfig.cornerStyle = .small
+        emailLoginButtonConfig.baseForegroundColor = .white
+        emailLoginButtonConfig.baseBackgroundColor = .black
+
+        emailLoginButton.configuration = emailLoginButtonConfig
     }
 }

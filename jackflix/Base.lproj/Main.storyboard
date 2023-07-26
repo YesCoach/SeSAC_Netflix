@@ -369,13 +369,46 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="nzx-5z-Z0i"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qrZ-MS-EeG">
+                                <rect key="frame" x="40" y="287" width="313" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9rt-dj-U4A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YKb-W9-ptn">
+                                <rect key="frame" x="40" y="343" width="313" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Q7r-rZ-YkJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqW-bh-A64">
+                                <rect key="frame" x="40" y="463" width="313" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="GE6-c1-E6g"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xAn-jp-RPg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="xAn-jp-RPg" firstAttribute="trailing" secondItem="sSE-oL-Lfm" secondAttribute="trailing" constant="20" id="0ei-4h-L4u"/>
+                            <constraint firstItem="YKb-W9-ptn" firstAttribute="top" secondItem="qrZ-MS-EeG" secondAttribute="bottom" constant="16" id="2hy-Dz-ww3"/>
+                            <constraint firstItem="mqW-bh-A64" firstAttribute="top" secondItem="YKb-W9-ptn" secondAttribute="bottom" constant="80" id="35E-wB-RNT"/>
                             <constraint firstItem="sSE-oL-Lfm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xAn-jp-RPg" secondAttribute="leading" constant="20" id="4SQ-qL-9rO"/>
+                            <constraint firstItem="YKb-W9-ptn" firstAttribute="trailing" secondItem="qrZ-MS-EeG" secondAttribute="trailing" id="8RO-e1-1zG"/>
+                            <constraint firstItem="qrZ-MS-EeG" firstAttribute="centerY" secondItem="xAn-jp-RPg" secondAttribute="centerY" multiplier="0.7" id="JUm-II-sbn"/>
+                            <constraint firstItem="qrZ-MS-EeG" firstAttribute="leading" secondItem="xAn-jp-RPg" secondAttribute="leading" constant="40" id="NGd-tc-8oe"/>
+                            <constraint firstItem="mqW-bh-A64" firstAttribute="leading" secondItem="xAn-jp-RPg" secondAttribute="leading" constant="40" id="VGH-i0-Ka3"/>
+                            <constraint firstItem="YKb-W9-ptn" firstAttribute="leading" secondItem="qrZ-MS-EeG" secondAttribute="leading" id="hl7-AZ-BjJ"/>
+                            <constraint firstItem="xAn-jp-RPg" firstAttribute="trailing" secondItem="qrZ-MS-EeG" secondAttribute="trailing" constant="40" id="nVH-a9-fib"/>
+                            <constraint firstItem="xAn-jp-RPg" firstAttribute="trailing" secondItem="mqW-bh-A64" secondAttribute="trailing" constant="40" id="tCm-OU-HKa"/>
                             <constraint firstItem="sSE-oL-Lfm" firstAttribute="top" secondItem="xAn-jp-RPg" secondAttribute="top" constant="20" id="zaj-hx-0aP"/>
                         </constraints>
                         <connections>
@@ -383,7 +416,10 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="emailLoginButton" destination="mqW-bh-A64" id="X7v-gj-EVI"/>
+                        <outlet property="emailTextField" destination="qrZ-MS-EeG" id="Dfe-oC-KC6"/>
                         <outlet property="enterWithoutLoginButton" destination="sSE-oL-Lfm" id="Y0U-83-AZI"/>
+                        <outlet property="passwordTextField" destination="YKb-W9-ptn" id="hmV-zV-AEL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CFw-k6-JSb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
