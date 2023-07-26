@@ -15,7 +15,7 @@ enum TextFieldType: Int {
     case code = 500
 }
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
 
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -34,7 +34,47 @@ class DetailViewController: UIViewController {
         configureData()
     }
 
-    private func configureUI() {
+    @IBAction func didTextFieldEntered(_ sender: UITextField) {
+        print("키보드 리턴키 클릭: \(sender.tag)")
+
+        guard let text = sender.text,
+              let value = TextFieldType(rawValue: sender.tag)
+        else {
+            print("오류가 발생했습니다")
+            return
+        }
+
+        switch value {
+        case .email:
+            print("아이디는 \(text) 입니다.")
+        case .password:
+            print("비밀번호는 \(text) 입니다")
+        case .nickname:
+            print("닉네임은 \(text) 입니다")
+        case .location:
+            print("위치는 \(text) 입니다")
+        case .code:
+            print("추천인 코드는 \(text) 입니다")
+        }
+    }
+
+    @IBAction func didSignInButtonTouched(_ sender: UIButton) {
+        view.endEditing(true)
+        checkSignInInformation()
+    }
+
+    @IBAction func didBackgroundViewTouched(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+
+    @IBAction func didSaveButtonTouched(_ sender: UIButton) {
+        print("클릭했습니다.")
+        saveSignInInformation()
+    }
+}
+
+private extension DetailViewController {
+    func configureUI() {
         [
             emailTextField, passwordTextField, nicknameTextField, locationTextField, codeTextField
         ].forEach {
@@ -68,7 +108,7 @@ class DetailViewController: UIViewController {
         codeTextField.tag = TextFieldType.code.rawValue
     }
 
-    private func configureData() {
+    func configureData() {
         let email = UserDefaults.standard.string(forKey: "email")
         let password = UserDefaults.standard.string(forKey: "password")
         let nickname = UserDefaults.standard.string(forKey: "name")
@@ -88,32 +128,7 @@ class DetailViewController: UIViewController {
         saveResultLabel.text =  "\(UserDefaults.standard.integer(forKey: "save"))"
     }
 
-    @IBAction func didTextFieldEntered(_ sender: UITextField) {
-        print("키보드 리턴키 클릭: \(sender.tag)")
-
-        guard let text = sender.text,
-              let value = TextFieldType(rawValue: sender.tag)
-        else {
-            print("오류가 발생했습니다")
-            return
-        }
-
-        switch value {
-        case .email:
-            print("아이디는 \(text) 입니다.")
-        case .password:
-            print("비밀번호는 \(text) 입니다")
-        case .nickname:
-            print("닉네임은 \(text) 입니다")
-        case .location:
-            print("위치는 \(text) 입니다")
-        case .code:
-            print("추천인 코드는 \(text) 입니다")
-        }
-    }
-
-    @IBAction func didSignInButtonTouched(_ sender: UIButton) {
-        view.endEditing(true)
+    func checkSignInInformation() {
         let alert = UIAlertController(
             title: nil,
             message: nil,
@@ -140,25 +155,19 @@ class DetailViewController: UIViewController {
         present(alert, animated: true)
     }
 
-    @IBAction func didBackgroundViewTouched(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
-
-    @IBAction func didSaveButtonTouched(_ sender: UIButton) {
-
-        print("클릭했습니다.")
-
-        UserDefaults.standard.set(emailTextField.text!, forKey: "email")
-        UserDefaults.standard.set(nicknameTextField.text!, forKey: "name")
-        UserDefaults.standard.set(passwordTextField.text!, forKey: "password")
+    func saveSignInInformation() {
+        UserDefaultsManager.shared.saveUserInformation(
+            email: emailTextField.text!,
+            password: passwordTextField.text!,
+            nickname: nicknameTextField.text!
+        )
 
         // 저장 버튼 클릭 횟수 저장 기능
         // 1. 저장된 횟수 가지고 오기
         // 2. 저장된 횟수에 1을 더하기
         // 3. 더한 값을 다시 저장함
 
-        let count = UserDefaults.standard.integer(forKey: "save")
-        UserDefaults.standard.set(count + 1, forKey: "save")
-        saveResultLabel.text = "\(UserDefaults.standard.integer(forKey: "save"))"
+        UserDefaultsManager.shared.saveSavingCount()
+        saveResultLabel.text = "\(UserDefaultsManager.shared.loadSavingCount())"
     }
 }

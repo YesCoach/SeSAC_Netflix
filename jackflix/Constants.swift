@@ -13,6 +13,7 @@ struct Constants {
         case password
         case nickname
         case isLogin
+        case save
     }
 
     enum Identifier: String {
