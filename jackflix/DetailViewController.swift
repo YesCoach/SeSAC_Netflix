@@ -74,12 +74,15 @@ class DetailViewController: UIViewController {
             return
         }
 
-        if sender.tag == TextFieldType.email.rawValue {
+        switch sender.tag {
+        case TextFieldType.email.rawValue:
             print("아이디는 \(text) 입니다.")
-        } else if sender.tag == TextFieldType.password.rawValue {
+        case TextFieldType.password.rawValue:
             print("비밀번호는 \(text) 입니다")
-        } else if sender.tag == TextFieldType.nickname.rawValue {
+        case TextFieldType.nickname.rawValue:
             print("닉네임은 \(text) 입니다")
+        default:
+            print("오류가 발생했습니다")
         }
     }
 
