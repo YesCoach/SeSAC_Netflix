@@ -12,16 +12,16 @@
         <!--Movie View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MovieViewController" customModule="jackflix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieViewController" id="BYZ-38-t0r" customClass="MovieViewController" customModule="jackflix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="어벤져스엔드게임" translatesAutoresizingMaskIntoConstraints="NO" id="URN-dP-Fg3">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="631.66666666666663"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="639"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="USv-hj-cRb">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="631.66666666666663"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="639"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XS9-5Z-8rx">
                                 <rect key="frame" x="15.999999999999996" y="0.0" width="43.666666666666657" height="60"/>
@@ -62,7 +62,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66l-ho-J9S" userLabel="PlayButton">
-                                <rect key="frame" x="135.66666666666666" y="565.33333333333337" width="121.66666666666666" height="58.333333333333371"/>
+                                <rect key="frame" x="135.66666666666666" y="572.66666666666663" width="121.66666666666666" height="58.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="play_normal"/>
                                 <connections>
@@ -70,7 +70,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wU-GM-Arh">
-                                <rect key="frame" x="16.000000000000007" y="565.33333333333337" width="103.66666666666669" height="58.333333333333371"/>
+                                <rect key="frame" x="16.000000000000007" y="572.66666666666663" width="103.66666666666669" height="58.333333333333371"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="check" imagePlacement="top" subtitle="내가 찜한 컨텐츠" imagePadding="8">
@@ -78,7 +78,7 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYf-0j-DsO">
-                                <rect key="frame" x="273.33333333333331" y="565.33333333333337" width="103.66666666666669" height="58.333333333333371"/>
+                                <rect key="frame" x="273.33333333333331" y="572.66666666666663" width="103.66666666666669" height="58.333333333333371"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="info" imagePlacement="top" subtitle="정보" imagePadding="8">
@@ -89,7 +89,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vtt-aP-qrA">
-                                <rect key="frame" x="0.0" y="631.66666666666663" width="393" height="210.33333333333337"/>
+                                <rect key="frame" x="0.0" y="639" width="393" height="213"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="미리보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iL4-9T-0qo">
                                         <rect key="frame" x="16" y="16" width="69.333333333333329" height="24"/>
@@ -365,8 +365,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="keyboardDismiss:" destination="hnM-fv-nOW" eventType="touchUpInside" id="VFJ-Pt-uGu"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="nzx-5z-Z0i"/>
+                                    <action selector="dismissKeyboard:" destination="hnM-fv-nOW" eventType="touchUpInside" id="zAV-OT-x8h"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="nzx-5z-Z0i"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qrZ-MS-EeG">
@@ -376,6 +376,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="didKeyboardReturnEntered:" destination="hnM-fv-nOW" eventType="editingDidEndOnExit" id="Rat-T6-ojq"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YKb-W9-ptn">
                                 <rect key="frame" x="40" y="343" width="313" height="40"/>
@@ -384,6 +387,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="didKeyboardReturnEntered:" destination="hnM-fv-nOW" eventType="editingDidEndOnExit" id="91b-VC-RTn"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqW-bh-A64">
                                 <rect key="frame" x="40" y="463" width="313" height="40"/>
@@ -392,6 +398,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="didEmailLoginButtonTouched:" destination="hnM-fv-nOW" eventType="touchUpInside" id="IAW-yV-o8y"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xAn-jp-RPg"/>
@@ -425,7 +434,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CFw-k6-JSb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="OZR-IW-biZ">
                     <connections>
-                        <action selector="keyboardDismiss:" destination="hnM-fv-nOW" id="qgy-tf-NA9"/>
+                        <action selector="dismissKeyboard:" destination="hnM-fv-nOW" id="qgy-tf-NA9"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
