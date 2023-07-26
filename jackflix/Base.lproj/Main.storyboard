@@ -273,13 +273,22 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5v-Mj-hdd">
-                                <rect key="frame" x="169.66666666666666" y="571" width="54" height="35"/>
+                                <rect key="frame" x="122" y="571" width="149" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="저장"/>
                                 <connections>
                                     <action selector="didSaveButtonTouched:" destination="yca-BM-Z6o" eventType="touchUpInside" id="RTx-K8-iKX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH2-mj-56x">
+                                <rect key="frame" x="331" y="571" width="42" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="r2y-AX-nUQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LCx-eW-QTq"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -290,6 +299,7 @@
                             <constraint firstItem="PD3-3z-8ka" firstAttribute="leading" secondItem="LCx-eW-QTq" secondAttribute="leading" constant="64" id="4ev-Ue-OQQ"/>
                             <constraint firstItem="6VR-eP-xDc" firstAttribute="top" secondItem="PD3-3z-8ka" secondAttribute="bottom" constant="24" id="6Km-CE-6Gw"/>
                             <constraint firstItem="xdT-Za-Pl1" firstAttribute="top" secondItem="6VR-eP-xDc" secondAttribute="top" id="6gA-rW-GYv"/>
+                            <constraint firstItem="hH2-mj-56x" firstAttribute="top" secondItem="x5v-Mj-hdd" secondAttribute="top" id="6kX-Ew-Uo1"/>
                             <constraint firstItem="yyZ-Aj-Ikm" firstAttribute="leading" secondItem="LCx-eW-QTq" secondAttribute="leading" constant="64" id="7ir-J9-5tw"/>
                             <constraint firstItem="LCx-eW-QTq" firstAttribute="trailing" secondItem="ZjM-FF-d9U" secondAttribute="trailing" constant="64" id="AaP-F0-k4H"/>
                             <constraint firstItem="ZjM-FF-d9U" firstAttribute="top" secondItem="Ndp-Pc-yi1" secondAttribute="bottom" constant="16" id="BnW-nl-WEY"/>
@@ -306,8 +316,10 @@
                             <constraint firstItem="yyZ-Aj-Ikm" firstAttribute="top" secondItem="ZjM-FF-d9U" secondAttribute="bottom" constant="16" id="Ssl-re-9KV"/>
                             <constraint firstItem="Ndp-Pc-yi1" firstAttribute="top" secondItem="tdk-UO-Ky3" secondAttribute="bottom" constant="16" id="W8i-Ag-dt2"/>
                             <constraint firstItem="LCx-eW-QTq" firstAttribute="trailing" secondItem="s2c-gP-OU3" secondAttribute="trailing" constant="64" id="X9T-Kx-POw"/>
+                            <constraint firstItem="LCx-eW-QTq" firstAttribute="trailing" secondItem="hH2-mj-56x" secondAttribute="trailing" constant="20" id="XEg-LA-OyA"/>
                             <constraint firstItem="pon-0v-NQo" firstAttribute="top" secondItem="LCx-eW-QTq" secondAttribute="top" constant="64" id="Xyn-1Y-2yD"/>
                             <constraint firstItem="xdT-Za-Pl1" firstAttribute="trailing" secondItem="PD3-3z-8ka" secondAttribute="trailing" id="Z9X-sN-29e"/>
+                            <constraint firstItem="hH2-mj-56x" firstAttribute="leading" secondItem="x5v-Mj-hdd" secondAttribute="trailing" constant="60" id="a6G-Ga-1wT"/>
                             <constraint firstItem="pon-0v-NQo" firstAttribute="centerX" secondItem="LCx-eW-QTq" secondAttribute="centerX" id="a8c-TR-1ZR"/>
                             <constraint firstItem="PD3-3z-8ka" firstAttribute="top" secondItem="s2c-gP-OU3" secondAttribute="bottom" constant="16" id="fRN-am-BVc"/>
                             <constraint firstItem="MGL-Cy-nid" firstAttribute="top" secondItem="PD3-3z-8ka" secondAttribute="bottom" constant="80" id="j4l-Sy-WhP"/>
@@ -326,6 +338,7 @@
                         <outlet property="locationTextField" destination="yyZ-Aj-Ikm" id="b4F-lP-frK"/>
                         <outlet property="nicknameTextField" destination="ZjM-FF-d9U" id="QeL-ao-7Eh"/>
                         <outlet property="passwordTextField" destination="Ndp-Pc-yi1" id="06d-2S-2Sf"/>
+                        <outlet property="saveResultLabel" destination="hH2-mj-56x" id="R8m-LS-Qp9"/>
                         <outlet property="signInButton" destination="PD3-3z-8ka" id="8op-wh-XvV"/>
                         <outlet property="testTextField" destination="MGL-Cy-nid" id="91V-wi-SkR"/>
                     </connections>

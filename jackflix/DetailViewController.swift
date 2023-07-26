@@ -25,12 +25,19 @@ class DetailViewController: UIViewController {
     @IBOutlet var signInButton: UIButton!
     @IBOutlet var infoSwitch: UISwitch!
 
+    @IBOutlet var saveResultLabel: UILabel!
     @IBOutlet var testTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         configureData()
+
+        let testString = UserDefaults.standard.string(forKey: "testString")
+        let testInt = UserDefaults.standard.integer(forKey: "testInt")
+        let testBool = UserDefaults.standard.bool(forKey: "testBool")
+
+        print(testString, testInt, testBool)
     }
 
     private func configureUI() {
@@ -72,11 +79,19 @@ class DetailViewController: UIViewController {
         let password = UserDefaults.standard.string(forKey: "password")
         let nickname = UserDefaults.standard.string(forKey: "name")
 
-        print(email, password, nickname)
+        if let email {
+            emailTextField.text = email
+        }
 
-        emailTextField.text = email
-        passwordTextField.text = password
-        nicknameTextField.text = nickname
+        if let password {
+            passwordTextField.text = password
+        }
+
+        if let nickname {
+            nicknameTextField.text = nickname
+        }
+
+        saveResultLabel.text =  "\(UserDefaults.standard.integer(forKey: "save"))"
     }
 
     @IBAction func didTextFieldEntered(_ sender: UITextField) {
@@ -143,5 +158,13 @@ class DetailViewController: UIViewController {
         UserDefaults.standard.set(nicknameTextField.text!, forKey: "name")
         UserDefaults.standard.set(passwordTextField.text!, forKey: "password")
 
+        // 저장 버튼 클릭 횟수 저장 기능
+        // 1. 저장된 횟수 가지고 오기
+        // 2. 저장된 횟수에 1을 더하기
+        // 3. 더한 값을 다시 저장함
+
+        let count = UserDefaults.standard.integer(forKey: "save")
+        UserDefaults.standard.set(count + 1, forKey: "save")
+        saveResultLabel.text = "\(UserDefaults.standard.integer(forKey: "save"))"
     }
 }
