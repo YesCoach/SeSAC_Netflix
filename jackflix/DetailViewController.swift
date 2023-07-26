@@ -32,12 +32,6 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureData()
-
-        let testString = UserDefaults.standard.string(forKey: "testString")
-        let testInt = UserDefaults.standard.integer(forKey: "testInt")
-        let testBool = UserDefaults.standard.bool(forKey: "testBool")
-
-        print(testString, testInt, testBool)
     }
 
     private func configureUI() {

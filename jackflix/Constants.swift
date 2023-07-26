@@ -7,20 +7,15 @@
 
 import Foundation
 
-enum Constants {
-    case email
-    case password
-    case nickname
-    case isLogin
-}
+struct Constants {
+    enum UserDefaultsKey: String {
+        case email
+        case password
+        case nickname
+        case isLogin
+    }
 
-extension Constants {
-    var userDefaultsKey: String {
-        switch self {
-        case .email: return "email"
-        case .password: return "password"
-        case .nickname: return "nickname"
-        case .isLogin: return "isLogin"
-        }
+    enum Identifier: String {
+        case signInSegue = "SignInSegue"
     }
 }

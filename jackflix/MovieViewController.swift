@@ -27,27 +27,28 @@ class MovieViewController: UIViewController {
         configureUI()
     }
 
+    @IBAction func didFavoriteButtonTouched(_ sender: UIButton) {
+        if !UserDefaultsManager.shared.checkIsLogin() {
+            performSegue(withIdentifier: Constants.Identifier.signInSegue.rawValue, sender: nil)
+        } else {
+            print("내가 찜한 콘텐츠로 이동")
+        }
+    }
+
+    @IBAction func didInformationButtonTouched(_ sender: UIButton) {
+        if !UserDefaultsManager.shared.checkIsLogin() {
+            performSegue(withIdentifier: Constants.Identifier.signInSegue.rawValue, sender: nil)
+        } else {
+            print("정보로 이동")
+        }
+    }
+
     @IBAction func playButtonClicked(_ sender: UIButton) {
         [
             posterImageView, previewFirstImageView, secondImageView, thirdImageView
         ].forEach {
             $0.image = pickRandomImage()
         }
-    }
-
-    @IBAction func likeButtonClicked(_ sender: UIButton) {
-        let alert = UIAlertController(
-            title: "이게 타이틀이야??",
-            message: "이게 메시지야? 이게 블락이야?",
-            preferredStyle: .alert
-        )
-        let ok = UIAlertAction(title: "확인", style: .default)
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
-
-        alert.addAction(ok)
-        alert.addAction(cancel)
-
-        present(alert, animated: true)
     }
 
     private func configureUI() {

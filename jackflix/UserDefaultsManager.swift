@@ -17,14 +17,14 @@ final class UserDefaultsManager {
 
 extension UserDefaultsManager {
     func saveLoginStatus() {
-        standard.set(true, forKey: Constants.isLogin.userDefaultsKey)
+        standard.set(true, forKey: Constants.UserDefaultsKey.isLogin.rawValue)
     }
 
     func checkIsLogin() -> Bool {
-        return standard.bool(forKey: Constants.isLogin.userDefaultsKey)
+        return standard.bool(forKey: Constants.UserDefaultsKey.isLogin.rawValue)
     }
 
     func terminateApp() {
-        standard.set(false, forKey: Constants.isLogin.userDefaultsKey)
+        standard.set(false, forKey: Constants.UserDefaultsKey.isLogin.rawValue)
     }
 }
