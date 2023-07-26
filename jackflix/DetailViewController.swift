@@ -69,20 +69,24 @@ class DetailViewController: UIViewController {
     @IBAction func didTextFieldEntered(_ sender: UITextField) {
         print("키보드 리턴키 클릭: \(sender.tag)")
 
-        guard let text = sender.text else {
+        guard let text = sender.text,
+              let value = TextFieldType(rawValue: sender.tag)
+        else {
             print("오류가 발생했습니다")
             return
         }
 
-        switch sender.tag {
-        case TextFieldType.email.rawValue:
+        switch value {
+        case .email:
             print("아이디는 \(text) 입니다.")
-        case TextFieldType.password.rawValue:
+        case .password:
             print("비밀번호는 \(text) 입니다")
-        case TextFieldType.nickname.rawValue:
+        case .nickname:
             print("닉네임은 \(text) 입니다")
-        default:
-            print("오류가 발생했습니다")
+        case .location:
+            print("위치는 \(text) 입니다")
+        case .code:
+            print("추천인 코드는 \(text) 입니다")
         }
     }
 
