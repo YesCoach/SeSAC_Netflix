@@ -30,6 +30,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureData()
     }
 
     private func configureUI() {
@@ -64,6 +65,18 @@ class DetailViewController: UIViewController {
         nicknameTextField.tag = TextFieldType.nickname.rawValue
         locationTextField.tag = TextFieldType.location.rawValue
         codeTextField.tag = TextFieldType.code.rawValue
+    }
+
+    private func configureData() {
+        let email = UserDefaults.standard.string(forKey: "email")
+        let password = UserDefaults.standard.string(forKey: "password")
+        let nickname = UserDefaults.standard.string(forKey: "name")
+
+        print(email, password, nickname)
+
+        emailTextField.text = email
+        passwordTextField.text = password
+        nicknameTextField.text = nickname
     }
 
     @IBAction func didTextFieldEntered(_ sender: UITextField) {
@@ -120,5 +133,15 @@ class DetailViewController: UIViewController {
 
     @IBAction func didBackgroundViewTouched(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+
+    @IBAction func didSaveButtonTouched(_ sender: UIButton) {
+
+        print("클릭했습니다.")
+
+        UserDefaults.standard.set(emailTextField.text!, forKey: "email")
+        UserDefaults.standard.set(nicknameTextField.text!, forKey: "name")
+        UserDefaults.standard.set(passwordTextField.text!, forKey: "password")
+
     }
 }

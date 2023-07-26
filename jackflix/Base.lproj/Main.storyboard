@@ -264,12 +264,22 @@
                                     <action selector="didTextFieldEntered:" destination="yca-BM-Z6o" eventType="editingDidEndOnExit" id="Pl5-da-ulB"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MGL-Cy-nid">
-                                <rect key="frame" x="148" y="519" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MGL-Cy-nid">
+                                <rect key="frame" x="156.66666666666666" y="497" width="80" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="8oC-i0-nk6"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5v-Mj-hdd">
+                                <rect key="frame" x="169.66666666666666" y="571" width="54" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="저장"/>
+                                <connections>
+                                    <action selector="didSaveButtonTouched:" destination="yca-BM-Z6o" eventType="touchUpInside" id="RTx-K8-iKX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LCx-eW-QTq"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -284,8 +294,11 @@
                             <constraint firstItem="LCx-eW-QTq" firstAttribute="trailing" secondItem="ZjM-FF-d9U" secondAttribute="trailing" constant="64" id="AaP-F0-k4H"/>
                             <constraint firstItem="ZjM-FF-d9U" firstAttribute="top" secondItem="Ndp-Pc-yi1" secondAttribute="bottom" constant="16" id="BnW-nl-WEY"/>
                             <constraint firstItem="LCx-eW-QTq" firstAttribute="trailing" secondItem="tdk-UO-Ky3" secondAttribute="trailing" constant="64" id="CXR-cP-jb1"/>
+                            <constraint firstItem="x5v-Mj-hdd" firstAttribute="top" secondItem="MGL-Cy-nid" secondAttribute="bottom" constant="40" id="Eka-tu-PXL"/>
                             <constraint firstItem="tdk-UO-Ky3" firstAttribute="leading" secondItem="LCx-eW-QTq" secondAttribute="leading" constant="64" id="Eln-MJ-CXa"/>
+                            <constraint firstItem="x5v-Mj-hdd" firstAttribute="centerX" secondItem="LCx-eW-QTq" secondAttribute="centerX" id="Fwa-PA-jdO"/>
                             <constraint firstItem="tdk-UO-Ky3" firstAttribute="top" secondItem="pon-0v-NQo" secondAttribute="bottom" constant="40" id="GLa-L4-XJB"/>
+                            <constraint firstItem="MGL-Cy-nid" firstAttribute="centerX" secondItem="LCx-eW-QTq" secondAttribute="centerX" id="Kfs-IC-vkt"/>
                             <constraint firstItem="Ndp-Pc-yi1" firstAttribute="leading" secondItem="LCx-eW-QTq" secondAttribute="leading" constant="64" id="M9d-cA-uVb"/>
                             <constraint firstItem="6VR-eP-xDc" firstAttribute="leading" secondItem="PD3-3z-8ka" secondAttribute="leading" id="NlK-DK-Hea"/>
                             <constraint firstItem="s2c-gP-OU3" firstAttribute="leading" secondItem="LCx-eW-QTq" secondAttribute="leading" constant="64" id="RSG-bR-ajB"/>
@@ -297,6 +310,7 @@
                             <constraint firstItem="xdT-Za-Pl1" firstAttribute="trailing" secondItem="PD3-3z-8ka" secondAttribute="trailing" id="Z9X-sN-29e"/>
                             <constraint firstItem="pon-0v-NQo" firstAttribute="centerX" secondItem="LCx-eW-QTq" secondAttribute="centerX" id="a8c-TR-1ZR"/>
                             <constraint firstItem="PD3-3z-8ka" firstAttribute="top" secondItem="s2c-gP-OU3" secondAttribute="bottom" constant="16" id="fRN-am-BVc"/>
+                            <constraint firstItem="MGL-Cy-nid" firstAttribute="top" secondItem="PD3-3z-8ka" secondAttribute="bottom" constant="80" id="j4l-Sy-WhP"/>
                             <constraint firstItem="ZjM-FF-d9U" firstAttribute="leading" secondItem="LCx-eW-QTq" secondAttribute="leading" constant="64" id="kMh-ad-msf"/>
                             <constraint firstItem="LCx-eW-QTq" firstAttribute="trailing" secondItem="yyZ-Aj-Ikm" secondAttribute="trailing" constant="64" id="le9-HE-MO2"/>
                         </constraints>
