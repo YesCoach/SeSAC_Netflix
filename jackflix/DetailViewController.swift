@@ -7,6 +7,14 @@
 
 import UIKit
 
+enum TextFieldType: Int {
+    case email = 100
+    case password = 200
+    case nickname = 300
+    case location = 400
+    case code = 500
+}
+
 class DetailViewController: UIViewController {
 
     @IBOutlet var emailTextField: UITextField!
@@ -51,15 +59,28 @@ class DetailViewController: UIViewController {
 
         // tag 설정
 
-        emailTextField.tag = 0
-        passwordTextField.tag = 1
-        nicknameTextField.tag = 2
-        locationTextField.tag = 3
-        codeTextField.tag = 4
+        emailTextField.tag = TextFieldType.email.rawValue
+        passwordTextField.tag = TextFieldType.password.rawValue
+        nicknameTextField.tag = TextFieldType.nickname.rawValue
+        locationTextField.tag = TextFieldType.location.rawValue
+        codeTextField.tag = TextFieldType.code.rawValue
     }
 
     @IBAction func didTextFieldEntered(_ sender: UITextField) {
         print("키보드 리턴키 클릭: \(sender.tag)")
+
+        guard let text = sender.text else {
+            print("오류가 발생했습니다")
+            return
+        }
+
+        if sender.tag == TextFieldType.email.rawValue {
+            print("아이디는 \(text) 입니다.")
+        } else if sender.tag == TextFieldType.password.rawValue {
+            print("비밀번호는 \(text) 입니다")
+        } else if sender.tag == TextFieldType.nickname.rawValue {
+            print("닉네임은 \(text) 입니다")
+        }
     }
 
     @IBAction func didSignInButtonTouched(_ sender: UIButton) {
