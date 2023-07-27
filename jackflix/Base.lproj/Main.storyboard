@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movie View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="MovieViewController" id="BYZ-38-t0r" customClass="MovieViewController" customModule="jackflix" customModuleProvider="target" sceneMemberID="viewController">
@@ -89,7 +89,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="didInformationButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3cW-uO-NrB"/>
-                                    <segue destination="yca-BM-Z6o" kind="presentation" identifier="SignInSegue" destinationCreationSelector="seguePerformed:sender:" modalPresentationStyle="automatic" id="BHR-7u-yQe"/>
+                                    <segue destination="J1V-Lw-8Cx" kind="presentation" identifier="SignInSegue" destinationCreationSelector="seguePerformed:sender:" modalPresentationStyle="automatic" id="BHR-7u-yQe"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vtt-aP-qrA">
@@ -168,6 +168,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vtt-aP-qrA" secondAttribute="trailing" id="zyy-RU-gkZ"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Y1g-xG-DmF"/>
                     <navigationItem key="navigationItem" id="fxx-W0-nDt"/>
                     <connections>
                         <outlet property="netflixLabel" destination="XS9-5Z-8rx" id="YNV-Or-9dR"/>
@@ -180,9 +181,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="87.786259541984734" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1115" y="4"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Item-->
+        <scene sceneID="bQQ-nl-1Gr">
+            <objects>
+                <viewController id="7Hz-CR-5dz" customClass="SecondTabViewController" customModule="jackflix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zPr-h0-N9N">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7z-j0-EtH">
+                                <rect key="frame" x="175" y="249" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jPO-5b-arA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="aTX-4F-rkX"/>
+                    <connections>
+                        <outlet property="resultLabel" destination="t7z-j0-EtH" id="kdO-et-Y7a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGV-oY-yRJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3215" y="727"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="Jn1-oZ-zY6">
             <objects>
                 <viewController id="yca-BM-Z6o" customClass="DetailViewController" customModule="jackflix" customModuleProvider="target" sceneMemberID="viewController">
@@ -334,6 +363,7 @@
                             <outletCollection property="gestureRecognizers" destination="blK-yL-3bU" appends="YES" id="CcO-Xq-CoZ"/>
                         </connections>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="egS-ge-c90"/>
                     <navigationItem key="navigationItem" id="Ufh-MR-vlm"/>
                     <connections>
                         <outlet property="codeTextField" destination="s2c-gP-OU3" id="hX1-va-pFK"/>
@@ -354,7 +384,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1018" y="4"/>
+            <point key="canvasLocation" x="3214.5038167938928" y="3.5211267605633805"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="DzB-a3-goo">
@@ -370,7 +400,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
                                     <action selector="dismissKeyboard:" destination="hnM-fv-nOW" eventType="touchUpInside" id="zAV-OT-x8h"/>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="nzx-5z-Z0i"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="SignInSegue" modalPresentationStyle="fullScreen" id="9Vg-CH-Ufe"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qrZ-MS-EeG">
@@ -442,7 +472,25 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-804" y="4"/>
+            <point key="canvasLocation" x="60" y="4"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="4bR-7H-tp8">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="J1V-Lw-8Cx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oEX-ya-I8c">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="yca-BM-Z6o" kind="relationship" relationship="viewControllers" id="nes-1H-PgD"/>
+                        <segue destination="7Hz-CR-5dz" kind="relationship" relationship="viewControllers" id="kFs-8d-4Fd"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C7o-jF-5He" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2287.7862595419847" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>

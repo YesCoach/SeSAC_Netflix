@@ -29,7 +29,7 @@ final class MovieViewController: UIViewController {
 
     @IBAction func didFavoriteButtonTouched(_ sender: UIButton) {
         if !UserDefaultsManager.shared.checkIsLogin() {
-            performSegue(withIdentifier: Constants.Identifier.signInSegue.rawValue, sender: nil)
+            performSegue(withIdentifier: Constants.Segue.signInSegue.rawValue, sender: nil)
         } else {
             print("내가 찜한 콘텐츠로 이동")
         }
@@ -37,7 +37,7 @@ final class MovieViewController: UIViewController {
 
     @IBAction func didInformationButtonTouched(_ sender: UIButton) {
         if !UserDefaultsManager.shared.checkIsLogin() {
-            performSegue(withIdentifier: Constants.Identifier.signInSegue.rawValue, sender: nil)
+            performSegue(withIdentifier: Constants.Segue.signInSegue.rawValue, sender: nil)
         } else {
             print("정보로 이동")
         }

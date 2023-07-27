@@ -8,15 +8,23 @@
 import Foundation
 
 struct Constants {
-    enum UserDefaultsKey: String {
+    enum UserDefaults: String {
         case email
         case password
         case nickname
         case isLogin
         case save
+
+        var key: String {
+            return self.rawValue
+        }
     }
 
-    enum Identifier: String {
+    enum Segue: String {
         case signInSegue = "SignInSegue"
+
+        var key: String {
+            return self.rawValue
+        }
     }
 }
