@@ -16,6 +16,8 @@ final class MovieViewController: UIViewController {
     @IBOutlet var randomPlayButon: UIButton!
     @IBOutlet var netflixLabel: UILabel!
 
+    private let userDefaultsManager = UserDefaultsManager.shared
+
     let random = ["부산행", "도둑들", "명량", "암살", "베테랑", "알라딘", "왕의남자"]
 
     // 사용자에게 화면이 보이기직전에 실행되는 부분
@@ -28,7 +30,7 @@ final class MovieViewController: UIViewController {
     }
 
     @IBAction func didFavoriteButtonTouched(_ sender: UIButton) {
-        if !UserDefaultsManager.shared.checkIsLogin() {
+        if !userDefaultsManager.isLoggedIn {
             performSegue(withIdentifier: Constants.Segue.signInSegue.rawValue, sender: nil)
         } else {
             print("내가 찜한 콘텐츠로 이동")
@@ -36,7 +38,7 @@ final class MovieViewController: UIViewController {
     }
 
     @IBAction func didInformationButtonTouched(_ sender: UIButton) {
-        if !UserDefaultsManager.shared.checkIsLogin() {
+        if !userDefaultsManager.isLoggedIn {
             performSegue(withIdentifier: Constants.Segue.signInSegue.rawValue, sender: nil)
         } else {
             print("정보로 이동")

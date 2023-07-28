@@ -28,6 +28,8 @@ final class DetailViewController: UIViewController {
     @IBOutlet var saveResultLabel: UILabel!
     @IBOutlet var testTextField: UITextField!
 
+    private let userDefaultsManager = UserDefaultsManager.shared
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -156,18 +158,16 @@ private extension DetailViewController {
     }
 
     func saveSignInInformation() {
-        UserDefaultsManager.shared.saveUserInformation(
-            email: emailTextField.text!,
-            password: passwordTextField.text!,
-            nickname: nicknameTextField.text!
-        )
+        userDefaultsManager.email = emailTextField.text!
+        userDefaultsManager.password = passwordTextField.text!
+        userDefaultsManager.nickname = nicknameTextField.text!
 
         // 저장 버튼 클릭 횟수 저장 기능
         // 1. 저장된 횟수 가지고 오기
         // 2. 저장된 횟수에 1을 더하기
         // 3. 더한 값을 다시 저장함
 
-        UserDefaultsManager.shared.saveSavingCount()
-        saveResultLabel.text = "\(UserDefaultsManager.shared.loadSavingCount())"
+        userDefaultsManager.saveCount += 1
+        saveResultLabel.text = "\(userDefaultsManager.saveCount)"
     }
 }

@@ -12,7 +12,7 @@ struct Constants {
         case email
         case password
         case nickname
-        case isLogin
+        case isLoggedIn
         case save
 
         var key: String {

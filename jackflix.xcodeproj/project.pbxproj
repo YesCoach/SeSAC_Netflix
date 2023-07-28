@@ -13,6 +13,7 @@
 		890A63E92A66709B005C7640 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 890A63E72A66709B005C7640 /* Main.storyboard */; };
 		890A63EB2A66709C005C7640 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 890A63EA2A66709C005C7640 /* Assets.xcassets */; };
 		890A63EE2A66709C005C7640 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 890A63EC2A66709C005C7640 /* LaunchScreen.storyboard */; };
+		892E89662A72BEDF00254B54 /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89652A72BEDF00254B54 /* UserDefaultWrapper.swift */; };
 		894F556C2A71F8B10034201A /* SecondTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894F556B2A71F8B10034201A /* SecondTabViewController.swift */; };
 		89C3C2C62A70BD1500F08B2C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3C2C52A70BD1500F08B2C /* Constants.swift */; };
 		89C3C2CE2A711BE200F08B2C /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3C2CD2A711BE200F08B2C /* UserDefaultsManager.swift */; };
@@ -29,6 +30,7 @@
 		890A63EA2A66709C005C7640 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		890A63ED2A66709C005C7640 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		890A63EF2A66709C005C7640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		892E89652A72BEDF00254B54 /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapper.swift; sourceTree = "<group>"; };
 		894F556B2A71F8B10034201A /* SecondTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabViewController.swift; sourceTree = "<group>"; };
 		89C3C2C52A70BD1500F08B2C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		89C3C2CD2A711BE200F08B2C /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -73,8 +75,9 @@
 				89F4399B2A676EE900791222 /* MovieViewController.swift */,
 				89F4399F2A67702000791222 /* DetailViewController.swift */,
 				894F556B2A71F8B10034201A /* SecondTabViewController.swift */,
-				89C3C2CD2A711BE200F08B2C /* UserDefaultsManager.swift */,
 				89C3C2C52A70BD1500F08B2C /* Constants.swift */,
+				89C3C2CD2A711BE200F08B2C /* UserDefaultsManager.swift */,
+				892E89652A72BEDF00254B54 /* UserDefaultWrapper.swift */,
 				890A63EA2A66709C005C7640 /* Assets.xcassets */,
 				890A63EC2A66709C005C7640 /* LaunchScreen.storyboard */,
 				890A63EF2A66709C005C7640 /* Info.plist */,
@@ -156,6 +159,7 @@
 				890A63E62A66709B005C7640 /* LoginViewController.swift in Sources */,
 				890A63E22A66709B005C7640 /* AppDelegate.swift in Sources */,
 				894F556C2A71F8B10034201A /* SecondTabViewController.swift in Sources */,
+				892E89662A72BEDF00254B54 /* UserDefaultWrapper.swift in Sources */,
 				89F439A02A67702000791222 /* DetailViewController.swift in Sources */,
 				89C3C2CE2A711BE200F08B2C /* UserDefaultsManager.swift in Sources */,
 				890A63E42A66709B005C7640 /* SceneDelegate.swift in Sources */,

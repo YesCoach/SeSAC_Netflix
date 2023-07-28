@@ -14,6 +14,8 @@ final class LoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var emailLoginButton: UIButton!
 
+    private let userDefaultsManager = UserDefaultsManager.shared
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -36,7 +38,8 @@ final class LoginViewController: UIViewController {
             presentAlert(message: "비밀번호를 입력해주세요")
             return
         }
-        UserDefaultsManager.shared.saveLoginStatus()
+        userDefaultsManager.isLoggedIn = true
+
         let movieViewController = UIStoryboard(name: "Main", bundle: nil)
             .instantiateViewController(withIdentifier: "MovieViewController")
         movieViewController.modalPresentationStyle = .fullScreen
