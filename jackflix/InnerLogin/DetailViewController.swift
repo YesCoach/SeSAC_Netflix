@@ -29,11 +29,13 @@ final class DetailViewController: UIViewController {
     @IBOutlet var testTextField: UITextField!
 
     private let userDefaultsManager = UserDefaultsManager.shared
+    private let viewModel = DetailViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         configureData()
+        bindViewModel()
     }
 
     @IBAction func didTextFieldEntered(_ sender: UITextField) {
@@ -48,14 +50,19 @@ final class DetailViewController: UIViewController {
 
         switch value {
         case .email:
+            viewModel.email.value = text
             print("아이디는 \(text) 입니다.")
         case .password:
+            viewModel.password.value = text
             print("비밀번호는 \(text) 입니다")
         case .nickname:
+            viewModel.nickname.value = text
             print("닉네임은 \(text) 입니다")
         case .location:
+            viewModel.location.value = text
             print("위치는 \(text) 입니다")
         case .code:
+            viewModel.code.value = text
             print("추천인 코드는 \(text) 입니다")
         }
     }
@@ -111,23 +118,65 @@ private extension DetailViewController {
     }
 
     func configureData() {
-        let email = UserDefaults.standard.string(forKey: "email")
-        let password = UserDefaults.standard.string(forKey: "password")
-        let nickname = UserDefaults.standard.string(forKey: "name")
+        viewModel.email.value = UserDefaults.standard.string(forKey: "email")
+        viewModel.password.value = UserDefaults.standard.string(forKey: "password")
+        viewModel.nickname.value = UserDefaults.standard.string(forKey: "name")
+        viewModel.saveResult.value = "\(UserDefaults.standard.integer(forKey: "save"))"
+    }
 
-        if let email {
+    func bindViewModel() {
+        viewModel.email.bind { [weak self] email in
+            guard let self else { return }
             emailTextField.text = email
         }
 
-        if let password {
+        viewModel.password.bind { [weak self] password in
+            guard let self else { return }
             passwordTextField.text = password
         }
 
-        if let nickname {
+        viewModel.nickname.bind { [weak self] nickname in
+            guard let self else { return }
             nicknameTextField.text = nickname
         }
 
-        saveResultLabel.text =  "\(UserDefaults.standard.integer(forKey: "save"))"
+        viewModel.location.bind { [weak self] location in
+            guard let self else { return }
+            locationTextField.text = location
+        }
+
+        viewModel.code.bind { [weak self] code in
+            guard let self else { return }
+            codeTextField.text = code
+        }
+
+        viewModel.saveResult.bind { [weak self] result in
+            guard let self else { return }
+            saveResultLabel.text = result
+        }
+
+        viewModel.alertSuccess.bind { [weak self] title, message in
+            guard let self, let title, let message else { return }
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+            let confirm = UIAlertAction(title: "확인", style: .default)
+            let cancel = UIAlertAction(title: "취소", style: .cancel)
+
+            [ confirm, cancel ].forEach { alert.addAction($0) }
+
+            present(alert, animated: true)
+        }
+
+        viewModel.alertFailure.bind { [weak self] title, message in
+            guard let self, let title, let message else { return }
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+            let confirm = UIAlertAction(title: "확인", style: .default)
+
+            alert.addAction(confirm)
+
+            present(alert, animated: true)
+        }
     }
 
     func checkSignInInformation() {
@@ -139,22 +188,7 @@ private extension DetailViewController {
         let confirmAction = UIAlertAction(title: "확인", style: .default)
         alert.addAction(confirmAction)
 
-        guard !emailTextField.text!.isEmpty && !passwordTextField.text!.isEmpty && !nicknameTextField.text!.isEmpty
-        else {
-            alert.title = "회원정보가 부족해요!"
-            alert.message = "정보를 마저 입력해주세요"
-            present(alert, animated: true)
-            return
-        }
-        if passwordTextField.text!.count < 6 {
-            alert.message = "비밀번호는 6자 이상으로 입력해주세요!"
-        } else {
-            alert.title = "회원가입 하시겠어요?"
-            alert.message = "\(nicknameTextField.text!)님의 ID: \(emailTextField.text!)"
-            let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-            alert.addAction(cancelAction)
-        }
-        present(alert, animated: true)
+        viewModel.checkInButtonDidTouched()
     }
 
     func saveSignInInformation() {
