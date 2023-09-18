@@ -20,6 +20,20 @@ class DetailViewModel {
     let alertSuccess: CustomObservable<(String?, String?)> = .init((nil, nil))
     let isSignInButtonEnable: CustomObservable<Bool> = .init(false)
 
+    private let userDefaultsManager = UserDefaultsManager.shared
+
+    init() {
+        loadFromUserDefaults()
+    }
+
+    func loadFromUserDefaults() {
+        email.value = userDefaultsManager.email
+        password.value = userDefaultsManager.password
+        nickname.value = userDefaultsManager.nickname
+        saveResult.value = "\(userDefaultsManager.saveCount)"
+    }
+
+    // 가입하기 버튼 클릭시, 유효성을 검증합니다.
     func checkInButtonDidTouched() {
 
         guard let email = email.value, email.validateEmailForm() else {
@@ -48,6 +62,21 @@ class DetailViewModel {
         let successAlertTitle = "회원가입 하시겠어요?"
         let successAlertMessage = "\(nickname)님의 ID: \(email)"
         alertSuccess.value = (successAlertTitle, successAlertMessage)
+    }
+
+    // 가입정보를 UserDefaults에 저장합니다.
+    func saveSignInInfoButtonTouched() {
+        userDefaultsManager.email = email.value ?? ""
+        userDefaultsManager.password = password.value ?? ""
+        userDefaultsManager.nickname = nickname.value ?? ""
+
+        // 저장 버튼 클릭 횟수 저장 기능
+        // 1. 저장된 횟수 가지고 오기
+        // 2. 저장된 횟수에 1을 더하기
+        // 3. 더한 값을 다시 저장함
+
+        userDefaultsManager.saveCount += 1
+        saveResult.value = "\(userDefaultsManager.saveCount)"
     }
     
 }

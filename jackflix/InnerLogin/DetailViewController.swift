@@ -7,12 +7,19 @@
 
 import UIKit
 
-enum TextFieldType: Int {
-    case email = 100
-    case password = 200
-    case nickname = 300
-    case location = 400
-    case code = 500
+enum TextFieldType: Int, CaseIterable {
+    case email
+    case password
+    case nickname
+    case location
+    case code
+
+    var next: TextFieldType {
+        guard let nextType = TextFieldType(rawValue: self.rawValue + 1) else {
+            return self
+        }
+        return nextType
+    }
 }
 
 final class DetailViewController: UIViewController {
@@ -34,42 +41,12 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        configureData()
         bindViewModel()
-    }
-
-    @IBAction func didTextFieldEntered(_ sender: UITextField) {
-        print("키보드 리턴키 클릭: \(sender.tag)")
-
-        guard let text = sender.text,
-              let value = TextFieldType(rawValue: sender.tag)
-        else {
-            print("오류가 발생했습니다")
-            return
-        }
-
-        switch value {
-        case .email:
-            viewModel.email.value = text
-            print("아이디는 \(text) 입니다.")
-        case .password:
-            viewModel.password.value = text
-            print("비밀번호는 \(text) 입니다")
-        case .nickname:
-            viewModel.nickname.value = text
-            print("닉네임은 \(text) 입니다")
-        case .location:
-            viewModel.location.value = text
-            print("위치는 \(text) 입니다")
-        case .code:
-            viewModel.code.value = text
-            print("추천인 코드는 \(text) 입니다")
-        }
     }
 
     @IBAction func didSignInButtonTouched(_ sender: UIButton) {
         view.endEditing(true)
-        checkSignInInformation()
+        viewModel.checkInButtonDidTouched()
     }
 
     @IBAction func didBackgroundViewTouched(_ sender: UITapGestureRecognizer) {
@@ -78,7 +55,7 @@ final class DetailViewController: UIViewController {
 
     @IBAction func didSaveButtonTouched(_ sender: UIButton) {
         print("클릭했습니다.")
-        saveSignInInformation()
+        viewModel.saveSignInInfoButtonTouched()
     }
 }
 
@@ -115,13 +92,9 @@ private extension DetailViewController {
         nicknameTextField.tag = TextFieldType.nickname.rawValue
         locationTextField.tag = TextFieldType.location.rawValue
         codeTextField.tag = TextFieldType.code.rawValue
-    }
 
-    func configureData() {
-        viewModel.email.value = UserDefaults.standard.string(forKey: "email")
-        viewModel.password.value = UserDefaults.standard.string(forKey: "password")
-        viewModel.nickname.value = UserDefaults.standard.string(forKey: "name")
-        viewModel.saveResult.value = "\(UserDefaults.standard.integer(forKey: "save"))"
+        [ emailTextField, passwordTextField, nicknameTextField, locationTextField, codeTextField ]
+            .forEach { $0?.delegate = self }
     }
 
     func bindViewModel() {
@@ -180,28 +153,49 @@ private extension DetailViewController {
     }
 
     func checkSignInInformation() {
-        let alert = UIAlertController(
-            title: nil,
-            message: nil,
-            preferredStyle: .alert
-        )
-        let confirmAction = UIAlertAction(title: "확인", style: .default)
-        alert.addAction(confirmAction)
-
         viewModel.checkInButtonDidTouched()
     }
 
-    func saveSignInInformation() {
-        userDefaultsManager.email = emailTextField.text!
-        userDefaultsManager.password = passwordTextField.text!
-        userDefaultsManager.nickname = nicknameTextField.text!
+}
 
-        // 저장 버튼 클릭 횟수 저장 기능
-        // 1. 저장된 횟수 가지고 오기
-        // 2. 저장된 횟수에 1을 더하기
-        // 3. 더한 값을 다시 저장함
+extension DetailViewController: UITextFieldDelegate {
 
-        userDefaultsManager.saveCount += 1
-        saveResultLabel.text = "\(userDefaultsManager.saveCount)"
+    /// 텍스트필드의 입력이 끝나면, 뷰모델에 해당 값을 바로 저장합니다.
+    /// 열거형과 텍스트필드의 태그값을 통해 입력 항목을 구분합니다.
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text,
+              let value = TextFieldType(rawValue: textField.tag)
+        else {
+            print("오류가 발생했습니다")
+            return
+        }
+
+        switch value {
+        case .email:
+            viewModel.email.value = text
+        case .password:
+            viewModel.password.value = text
+        case .nickname:
+            viewModel.nickname.value = text
+        case .location:
+            viewModel.location.value = text
+        case .code:
+            viewModel.code.value = text
+        }
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let value = TextFieldType(rawValue: textField.tag)
+        else {
+            print("오류가 발생했습니다")
+            return true
+        }
+        textField.resignFirstResponder()
+        let targetValue: TextFieldType = value.next
+
+        if targetValue != value {
+            view.viewWithTag(targetValue.rawValue)?.becomeFirstResponder()
+        }
+        return true
     }
 }
